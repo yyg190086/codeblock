@@ -27,7 +27,7 @@ char* reverseWords(char* s) {
     }
 
     if (s[fast] == ' ') {
-        s[slow] == '\0';
+        s[slow] = '\0';
     } else {
         s[slow++] = s[fast];
         s[slow] = '\0';
@@ -47,6 +47,7 @@ char* reverseWords(char* s) {
 }
 
 int main() {
-    char *words = "  hello world  ";
-    printf("%s\n", reverseWords(words));
+    char words[] = "  hello world  ";
+    char *reversed_words = reverseWords(words);
+    printf("%s\n", reversed_words);
 }
