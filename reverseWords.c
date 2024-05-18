@@ -1,3 +1,6 @@
+#include<stdio.h>
+#include<string.h>
+
 void reverse(char *s, int start, int end) {
     while (start < end) {
         char temp = s[start];
