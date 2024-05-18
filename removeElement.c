@@ -1,5 +1,7 @@
 #include"stdio.h"
-int removeElement(int* nums, int numsSize, int val) {
+
+/* brutal force */
+int removeElement1(int* nums, int numsSize, int val) {
     for (int i = 0; i < numsSize; i++) {
         if (nums[i] == val) {
            for (int j = i + 1; j < numsSize; j++)  {
@@ -10,6 +12,17 @@ int removeElement(int* nums, int numsSize, int val) {
         }
     }
     return numsSize;
+}
+
+/* fast and slow pointer */
+int removeElement(int* nums, int numsSize, int val) {
+    int slow = 0;
+    for (int fast = 0; fast < numsSize; fast++) {
+        if (val != nums[fast]) {
+            nums[slow++] = nums[fast];
+        }
+    }
+    return slow;
 }
 
 int main() {
