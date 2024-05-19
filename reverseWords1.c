@@ -4,8 +4,10 @@
 
 char* reverseWords(char* s) {
     int len = strlen(s);
-    //char** word = (char**)malloc(1000 * sizeof(char*));
-    char word[1000][30];
+    char** word = (char**)malloc(1000 * sizeof(char*));
+    for (int i = 0; i < 1000; i++) {
+        word[i] = (char*)malloc(30 * sizeof(char));
+    }
     int i = 0;
     int offset = 0;
     int fast = 0, slow = 0;
@@ -44,12 +46,16 @@ char* reverseWords(char* s) {
         }
         strcat(s, word[j]);
     }
-    //free(word);
+    for (int i = 0; i < 1000; i++) {
+        free(word[i]);
+    }
+    free(word);
     return s;
 }
 
+
 int main() {
-    char words[] = "  the sky  is blue  ";
+    char words[] = "  the sky is  blue ";
     char *reversed_words = reverseWords(words);
     printf("%s\n", reversed_words);
 }
